@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>大学城美食地图 - UniFood Home</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+SC:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#060e20",
+                        "primary-fixed": "#c0e8ff",
+                        "primary": "#c5eaff",
+                        "on-primary-fixed": "#001e2b",
+                        "on-primary": "#003547",
+                        "secondary-fixed": "#c8e7f9",
+                        "on-error": "#690005",
+                        "inverse-primary": "#006686",
+                        "error-container": "#93000a",
+                        "outline-variant": "#3f484e",
+                        "surface-container-low": "#131b2e",
+                        "tertiary-fixed": "#ffddb5",
+                        "surface-tint": "#7bd1fa",
+                        "on-secondary-fixed-variant": "#2d4a59",
+                        "surface-variant": "#2d3449",
+                        "primary-fixed-dim": "#7bd1fa",
+                        "inverse-on-surface": "#283044",
+                        "surface-bright": "#31394d",
+                        "on-background": "#dae2fd",
+                        "on-tertiary": "#452b00",
+                        "inverse-surface": "#dae2fd",
+                        "surface-container-highest": "#2d3449",
+                        "primary-container": "#7dd3fc",
+                        "on-tertiary-container": "#754b00",
+                        "background": "#0b1326",
+                        "on-secondary-fixed": "#001e2b",
+                        "secondary-container": "#2f4d5c",
+                        "tertiary": "#ffdfba",
+                        "outline": "#899298",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#accbdd",
+                        "on-primary-container": "#005b78",
+                        "tertiary-container": "#febc60",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#0b1326",
+                        "surface-container-high": "#222a3d",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-secondary": "#143442",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-surface": "#dae2fd",
+                        "surface-container": "#171f33",
+                        "on-surface-variant": "#bec8ce",
+                        "tertiary-fixed-dim": "#fcba5e",
+                        "on-secondary-container": "#9ebdce",
+                        "secondary": "#accbdd",
+                        "surface-dim": "#0b1326",
+                        "on-tertiary-fixed": "#2a1800"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "Noto Sans SC"],
+                        "body": ["Inter", "Noto Sans SC"],
+                        "label": ["Inter", "Noto Sans SC"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+        .glass-card {
+            background: rgba(34, 42, 61, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#7dd3fc] cursor-pointer hover:opacity-80 transition-opacity">menu</span>
+<span class="text-xl font-black text-[#7dd3fc] tracking-tight">大学城美食地图</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#7dd3fc] cursor-pointer hover:opacity-80 transition-opacity">search</span>
+</div>
+</header>
+<main class="pt-20 pb-32 px-4 max-w-5xl mx-auto">
+<!-- Search & Campus Filter -->
+<section class="mb-8">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3 px-4 py-3 bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-inner">
+<span class="material-symbols-outlined text-outline">location_on</span>
+<span class="text-sm font-bold text-primary">主校区</span>
+<span class="material-symbols-outlined text-outline text-sm">expand_more</span>
+<div class="h-4 w-[1px] bg-outline-variant/30 mx-1"></div>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline/60" placeholder="搜索校内美食、食堂..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto no-scrollbar py-1">
+<button class="flex-none px-4 py-1.5 rounded-full bg-primary-container text-on-primary-container text-xs font-bold">全部</button>
+<button class="flex-none px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface text-xs font-medium hover:bg-surface-variant">食堂</button>
+<button class="flex-none px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface text-xs font-medium hover:bg-surface-variant">西门外</button>
+<button class="flex-none px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface text-xs font-medium hover:bg-surface-variant">北区商圈</button>
+<button class="flex-none px-4 py-1.5 rounded-full bg-surface-container-high text-on-surface text-xs font-medium hover:bg-surface-variant">奶茶甜品</button>
+</div>
+</div>
+</section>
+<!-- Lucky Draw: "What to eat today?" -->
+<section class="mb-10">
+<div class="relative overflow-hidden rounded-[2rem] p-8 bg-gradient-to-br from-primary-container/20 to-surface-container-high border border-primary-container/10 group">
+<div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-primary-container/10 rounded-full blur-3xl group-hover:bg-primary-container/20 transition-all duration-700"></div>
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<h2 class="text-2xl font-black text-on-surface mb-2">今天吃什么？</h2>
+<p class="text-on-surface-variant text-sm max-w-xs">纠结星人救星！点击下方按钮，让冰川算法为你随机抽取一个校园周边美食惊喜。</p>
+</div>
+<button class="flex items-center gap-3 bg-primary-container hover:scale-105 active:scale-95 text-on-primary-container px-8 py-4 rounded-full font-black text-lg shadow-[0_0_30px_rgba(125,211,252,0.3)] transition-all duration-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">casino</span>
+                        立即抽取
+                    </button>
+</div>
+</div>
+</section>
+<!-- Horizontal Recommendations (Bento Style) -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-6">
+<h3 class="text-xl font-black text-on-surface tracking-tight">热门推荐</h3>
+<span class="text-xs font-bold text-primary cursor-pointer">查看全部</span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+<!-- Students' Favorite -->
+<div class="col-span-2 relative h-48 rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="vibrant street food stalls at night with glowing neon signs and steam rising from cooking pots" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPJNGtz70ip2OwNcjyn0tOopHYtDPc20IFHYQStE3fGnyuto2tVIsmyKCVkNHW4QDf9Sa_4IY_LGMk87sdGkzrzDtQZQkveYn4maDT0anko2vIixYQSo9jwQidOIo4PLs2D2KYUOXH4-H9dJRp3ZxMF5rlAaGS3yIcLCIqeG1WDZPuLlJkLm5qyMWjNhEoFyAbCEwzybODq-jzytnYeqOKdAVT4rD3ThZ10TJAbtflhDntdGzYUXHs2ysg9KS6JxrnXhr2q4jbJfk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"></div>
+<div class="absolute bottom-4 left-5">
+<span class="inline-block px-2 py-1 bg-primary text-on-primary-container text-[10px] font-black rounded mb-2">学生最爱榜单</span>
+<h4 class="text-lg font-bold text-white leading-tight">全校Top 10口碑店</h4>
+</div>
+</div>
+<!-- Late Night -->
+<div class="relative h-48 rounded-3xl overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close up of steaming spicy noodles bowl with chopsticks in a dark moody restaurant setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD92WvYKhzPVqbTNcb3kfNGSuZTvOczP6ZakJu8FJqZJdYQv7BR4Rl72bRx1ZVf22vgQ3eLBnmyspK9-6sdk-if9fpjLKZ1cdj7dsEaVbxslB3eWBg5I7d-azELwG-2RHF5KqUKfOOG7UxetrX2pExAxsbCxmpEEQZU2oVYnk5UYqjEKsiBTZfDm7xbqjP-ZKy6aKMTyI8l5-PYoEN9TCrnJ25xoCJNOmZd48EveNgScZfqQch7d5qZdEZ2KxO-bzzPg8adDvJ7XsM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-4 left-5">
+<h4 class="text-base font-bold text-white">深夜食堂</h4>
+<p class="text-white/70 text-[10px]">凌晨不打烊的温暖</p>
+</div>
+</div>
+<!-- Budget Friendly -->
+<div class="relative h-48 rounded-3xl overflow-hidden group md:hidden">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="rustic wooden table set with various affordable small plates of local snacks and dumplings" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtuwHELTlWye3W8CbtYVIc43sMtsJijqC2sZwi0tSRbmv14qg6KSPiveK4DaJi7TDtdZpbL27jSuVMqEQ5vIJfgvns7N1UGZBXZDlL1CWXgdmIAD8VFBkGhwkzLvgTYuoTAlEWTymGRxcpa1xhhTVMSA9EGnLzuqxwztr3UB-xGZaBexsEzLN0EzGJIA2UrwxDP7mndaUl_7i1SSh_jwKmaIIFWm99JuwSPkQ_bVJrmWan76c0YglJU30BlvhG1N3DSEAoEwhUWHY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+<div class="absolute bottom-4 left-5">
+<h4 class="text-base font-bold text-white">平价好味</h4>
+<p class="text-white/70 text-[10px]">人均20元吃到撑</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Restaurant List -->
+<section class="mb-8">
+<div class="flex items-center gap-2 mb-6">
+<span class="w-1 h-6 bg-primary rounded-full"></span>
+<h3 class="text-xl font-black text-on-surface tracking-tight">周边美食探索</h3>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Card 1 -->
+<div class="glass-card rounded-[2rem] overflow-hidden flex flex-col sm:flex-row gap-4 p-3 transition-all hover:bg-surface-container-high/60 group cursor-pointer">
+<div class="w-full sm:w-48 h-32 rounded-2xl overflow-hidden flex-none">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="delicious thick beef burger with melted cheese and fresh greens on a dark slate plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ0xx_t8OoweSLAYf512PCJBRiAxrLAeMU9fYC10bUmBHBlWHPLrJIse3Rtya8I-FnCWUt9RcGZ0HmHrCtJyTwSc_yAtMA5JGNcwQoTGNspe5mG9TAy1l7AcxcbJkF9LVwJiEpiHqVzxstZEZSAI5VFlDr25JQ-Tf7vccZzzGhgp1R_28chhEDfRQi0CDP9XhrXINp7GNJkAkGg2SlYn9jHXsDa-TVxCzf94EKT8B7usaM8XsS7tur1BiwRCMQpQ1I_ZhpMyGhOog"/>
+</div>
+<div class="flex flex-col justify-between py-1 px-2 flex-grow">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-lg font-bold text-on-surface">冰川汉堡工坊 (西区店)</h4>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-black">4.8</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-primary-container/10 text-primary border border-primary/20">学长力荐</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">美式简餐</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant text-xs">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">distance</span>
+                                    350m
+                                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                    20min
+                                </span>
+</div>
+<span class="font-bold text-primary">学生专享 8.8折</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="glass-card rounded-[2rem] overflow-hidden flex flex-col sm:flex-row gap-4 p-3 transition-all hover:bg-surface-container-high/60 group cursor-pointer">
+<div class="w-full sm:w-48 h-32 rounded-2xl overflow-hidden flex-none">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="bowl of authentic hot spicy malatang with various ingredients and red chili oil broth" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH_d342F7jQ-IQcCY1yB4seeosDMOr5nisx93ZnyPpQ9O9k8ETvPG44TmKb1QKiZD2zUnp4TJ22TAC-HNvDIbJOX7CFniuqqKfCmjPY7MIT3KcmTKi_k7Tz2JtKqVvsfPh6WushSJNYrQ7pPaK53PeYeeJzZ5kkER3SFgnGrnQT3UHy1o-YYD9yvtyaUq3lWMW_PIo0tuLgr48COF-A5D-msYOdIqazWJ7rWjC3LFvghXR7ZRUoyV6L2RZvkHJEhW3ylQsq1k3YvU"/>
+</div>
+<div class="flex flex-col justify-between py-1 px-2 flex-grow">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-lg font-bold text-on-surface">重邮麻辣烫 (北门总店)</h4>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-black">4.9</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-primary-container/10 text-primary border border-primary/20">排队王</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">川味麻辣</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant text-xs">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">distance</span>
+                                    120m
+                                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                    5min
+                                </span>
+</div>
+<span class="font-bold text-primary">满20减5</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="glass-card rounded-[2rem] overflow-hidden flex flex-col sm:flex-row gap-4 p-3 transition-all hover:bg-surface-container-high/60 group cursor-pointer">
+<div class="w-full sm:w-48 h-32 rounded-2xl overflow-hidden flex-none">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="elegant japanese sushi platter with various nigiri and rolls on a black stone tray" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjwALGlfON-bF6A_Wb7GaqcP9hm-EM1s32bxZPEilJIBgrcVBS2cJDOvPHQ_-r3j72RmJ-llxAt94JyNgH6ObJRb2Fyym7lOjcglc0TmbGryrA7tQZPH_sZBT-MxTjCUfgfHlRFlawNVwbsA8DfXuvasmej_HV0ojZ2yADn3YyKVKqFxknUAb9U_ABZomW7RT5DjVoBSdv5rWo_0H4hzzHE9TftLcLAsLsddSA69HToDRownVGgqaOOzrRFDPN15R2zWmxePkw0B0"/>
+</div>
+<div class="flex flex-col justify-between py-1 px-2 flex-grow">
+<div>
+<div class="flex justify-between items-start mb-1">
+<h4 class="text-lg font-bold text-on-surface">樱花里和食屋</h4>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-black">4.7</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-3">
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-primary-container/10 text-primary border border-primary/20">约会首选</span>
+<span class="text-[10px] px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant">日韩料理</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant text-xs">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">distance</span>
+                                    850m
+                                </span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+                                    15min
+                                </span>
+</div>
+<span class="font-bold text-primary">学生证赠厚蛋烧</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-[#0b1326]/90 backdrop-blur-2xl rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.4)] flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-[#7dd3fc] bg-[#7dd3fc]/10 rounded-2xl px-4 py-1.5 shadow-[0_0_15px_rgba(125,211,252,0.2)] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">map</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">地图</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">动态</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">我的</span>
+</a>
+</nav>
+</body></html>

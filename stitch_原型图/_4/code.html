@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+SC:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-lowest": "#060e20",
+                        "primary-fixed": "#c0e8ff",
+                        "primary": "#c5eaff",
+                        "on-primary-fixed": "#001e2b",
+                        "on-primary": "#003547",
+                        "secondary-fixed": "#c8e7f9",
+                        "on-error": "#690005",
+                        "inverse-primary": "#006686",
+                        "error-container": "#93000a",
+                        "outline-variant": "#3f484e",
+                        "surface-container-low": "#131b2e",
+                        "tertiary-fixed": "#ffddb5",
+                        "surface-tint": "#7bd1fa",
+                        "on-secondary-fixed-variant": "#2d4a59",
+                        "surface-variant": "#2d3449",
+                        "primary-fixed-dim": "#7bd1fa",
+                        "inverse-on-surface": "#283044",
+                        "surface-bright": "#31394d",
+                        "on-background": "#dae2fd",
+                        "on-tertiary": "#452b00",
+                        "inverse-surface": "#dae2fd",
+                        "surface-container-highest": "#2d3449",
+                        "primary-container": "#7dd3fc",
+                        "on-tertiary-container": "#754b00",
+                        "background": "#0b1326",
+                        "on-secondary-fixed": "#001e2b",
+                        "secondary-container": "#2f4d5c",
+                        "tertiary": "#ffdfba",
+                        "outline": "#899298",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#accbdd",
+                        "on-primary-container": "#005b78",
+                        "tertiary-container": "#febc60",
+                        "on-error-container": "#ffdad6",
+                        "surface": "#0b1326",
+                        "surface-container-high": "#222a3d",
+                        "on-primary-fixed-variant": "#004d66",
+                        "on-secondary": "#143442",
+                        "on-tertiary-fixed-variant": "#633f00",
+                        "on-surface": "#dae2fd",
+                        "surface-container": "#171f33",
+                        "on-surface-variant": "#bec8ce",
+                        "tertiary-fixed-dim": "#fcba5e",
+                        "on-secondary-container": "#9ebdce",
+                        "secondary": "#accbdd",
+                        "surface-dim": "#0b1326",
+                        "on-tertiary-fixed": "#2a1800"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "Noto Sans SC"],
+                        "body": ["Inter", "Noto Sans SC"],
+                        "label": ["Inter", "Noto Sans SC"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .map-bg {
+            background-image: radial-gradient(circle at 50% 50%, #131b2e 0%, #0b1326 100%);
+        }
+        .glass-panel {
+            background: rgba(34, 42, 61, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body select-none">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#7dd3fc] hover:opacity-80 transition-opacity cursor-pointer">menu</span>
+<h1 class="text-xl font-black text-[#7dd3fc] font-['Inter','Noto_Sans_SC'] tracking-tight">大学城美食地图</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:opacity-80 transition-opacity cursor-pointer">search</span>
+</div>
+</header>
+<!-- Main Content Canvas: Map View -->
+<main class="relative h-screen w-full pt-16 pb-24 overflow-hidden">
+<!-- Interactive Map Mockup -->
+<div class="absolute inset-0 z-0 map-bg">
+<img class="w-full h-full object-cover opacity-30 grayscale contrast-125" data-alt="stylized dark navy satellite view map of a modern university campus with glowing blue arterial roads and geometric building outlines" data-location="Guangzhou Higher Education Mega Center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX3eHYc2kLL2zbvIoyvluh7L0IRgRFB-csKwbcy3TwK0Y2Tm4sJBNbYQ0tph4vpX-QFHaZGSiRhblWlXk1zwb8eCMLAOoHThiQaMSSec1joTcvV2I7t9TmKdS_Bmf2kE5OaQBf0Xy2VMKDMSCSolAPT5j6OMJfFWvOmarzPh7kQGLtivaiNkbG4_JuouDwf7uNfch_BFL1eTvBSxEwlFqQ33Q_LEjUfwtW9_hyAuOku-a7yA0SGPjkXuYlDzESc5g6zOi0qzN3yCo"/>
+<!-- Map Markers -->
+<div class="absolute top-1/3 left-1/4 group cursor-pointer">
+<div class="relative">
+<!-- Marker Bubble -->
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-48 glass-panel rounded-2xl p-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform scale-90 group-hover:scale-100 shadow-2xl pointer-events-none">
+<div class="flex justify-between items-start mb-1">
+<span class="text-sm font-bold text-primary">潮汕牛肉火锅</span>
+<div class="flex items-center text-[10px] text-tertiary-container">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.8
+                            </div>
+</div>
+<div class="bg-primary/10 text-primary-fixed text-[10px] px-2 py-0.5 rounded-full w-fit">学生凭证 8.5 折</div>
+</div>
+<!-- Marker Icon -->
+<div class="w-10 h-10 bg-primary-container rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(125,211,252,0.4)] border-4 border-surface-container-high transition-transform active:scale-90">
+<span class="material-symbols-outlined text-on-primary-container text-xl" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+</div>
+</div>
+<div class="absolute top-1/2 right-1/3 group cursor-pointer">
+<div class="relative">
+<div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-40 glass-panel rounded-2xl p-3 shadow-2xl">
+<div class="flex justify-between items-start mb-1">
+<span class="text-sm font-bold text-primary">雪王奶茶</span>
+<div class="flex items-center text-[10px] text-tertiary-container">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.5
+                            </div>
+</div>
+<div class="bg-error-container/20 text-error text-[10px] px-2 py-0.5 rounded-full w-fit">满20减5</div>
+</div>
+<div class="w-10 h-10 bg-surface-container-high rounded-full flex items-center justify-center border-4 border-primary-container/30">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">bubbles</span>
+</div>
+</div>
+</div>
+<!-- Campus Landmark -->
+<div class="absolute top-[20%] right-[15%] flex flex-col items-center">
+<div class="px-3 py-1 bg-surface-container-low/40 border border-outline-variant/20 rounded-full backdrop-blur-sm">
+<span class="text-[10px] font-bold text-on-surface/60 uppercase tracking-widest">理学院 · 教学楼 A</span>
+</div>
+<div class="w-1 h-8 bg-gradient-to-b from-outline-variant/40 to-transparent"></div>
+</div>
+</div>
+<!-- Top Search & Filter Bar -->
+<div class="absolute top-4 left-0 w-full px-6 flex flex-col gap-4 z-10">
+<!-- Search Field -->
+<div class="relative w-full max-w-md mx-auto">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400">search</span>
+</div>
+<input class="w-full bg-surface-container-lowest/80 backdrop-blur-xl border-none rounded-full py-4 pl-12 pr-6 text-sm text-on-surface placeholder:text-slate-500 focus:ring-2 focus:ring-primary/30 transition-all shadow-xl" placeholder="搜索校区美食、餐厅、品类..." type="text"/>
+</div>
+<!-- Chips Filter -->
+<div class="flex gap-2 overflow-x-auto pb-2 no-scrollbar justify-center">
+<button class="flex-shrink-0 px-5 py-2 rounded-full bg-primary-container text-on-primary-container font-bold text-sm shadow-[0_0_15px_rgba(125,211,252,0.2)]">全部</button>
+<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface/80 hover:bg-surface-container-highest transition-colors text-sm">火锅</button>
+<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface/80 hover:bg-surface-container-highest transition-colors text-sm">奶茶饮品</button>
+<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface/80 hover:bg-surface-container-highest transition-colors text-sm">快餐便当</button>
+<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface/80 hover:bg-surface-container-highest transition-colors text-sm">西餐</button>
+</div>
+</div>
+<!-- Selected Preview Card (Bottom Floating) -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-lg z-20">
+<div class="glass-panel rounded-[2rem] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-outline-variant/10">
+<div class="flex gap-4">
+<div class="w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0">
+<img alt="food" class="w-full h-full object-cover" data-alt="close-up of a steaming bowl of spicy noodles with fresh herbs and golden lighting, high-end food photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_rMyt6hYwe_NU5t8dAWHaHp3VSuUENkgdnof0kBzauZnmC5_SUBXzmjgwPyk1OM6sZdXhYJXu3k8TQpbG2hcBAec4yyGqI5M-8NlGx45C5fPPv4CxGeJvLbnHDx9d7A8jYXvtM3y91MUbvq5v6llCr1LOaqTqg5ph_sN-vzhWIpf4FynzZb_V9R3I9VjmCQ0yNYeHNCrHVJCAB5zD8xmmY2b_ads7PCoysBk-1ZwW5-gKewJIvI_Q28bJ87n8DOTruVb-wzs85ro"/>
+</div>
+<div class="flex-grow flex flex-col justify-between py-1">
+<div>
+<div class="flex justify-between items-start">
+<h3 class="text-lg font-bold text-on-surface">川粤时光 · 精致私房菜</h3>
+<div class="flex items-center gap-1 bg-surface-container-highest px-2 py-0.5 rounded-lg">
+<span class="material-symbols-outlined text-[14px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs font-bold text-tertiary-container">4.9</span>
+</div>
+</div>
+<p class="text-xs text-slate-400 mt-1">距您 450m · 大学城北生活区 1 栋</p>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] rounded-md font-medium">全场 8 折</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-slate-400 text-[10px] rounded-md font-medium">免排队</span>
+</div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-3 rounded-2xl bg-surface-container-highest text-on-surface font-bold text-sm hover:opacity-80 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">info</span>
+                        查看详情
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 rounded-2xl bg-primary-container text-on-primary-container font-bold text-sm hover:opacity-80 active:scale-95 transition-all shadow-[0_4px_15px_rgba(125,211,252,0.3)]">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">navigation</span>
+                        开始导航
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#0b1326]/90 backdrop-blur-2xl z-50 rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#7dd3fc] bg-[#7dd3fc]/10 rounded-2xl px-4 py-1.5 shadow-[0_0_15px_rgba(125,211,252,0.2)] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">地图</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">动态</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">我的</span>
+</a>
+</nav>
+</body></html>

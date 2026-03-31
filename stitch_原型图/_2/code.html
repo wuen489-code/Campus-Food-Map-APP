@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+SC:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#060e20",
+              "primary-fixed": "#c0e8ff",
+              "primary": "#c5eaff",
+              "on-primary-fixed": "#001e2b",
+              "on-primary": "#003547",
+              "secondary-fixed": "#c8e7f9",
+              "on-error": "#690005",
+              "inverse-primary": "#006686",
+              "error-container": "#93000a",
+              "outline-variant": "#3f484e",
+              "surface-container-low": "#131b2e",
+              "tertiary-fixed": "#ffddb5",
+              "surface-tint": "#7bd1fa",
+              "on-secondary-fixed-variant": "#2d4a59",
+              "surface-variant": "#2d3449",
+              "primary-fixed-dim": "#7bd1fa",
+              "inverse-on-surface": "#283044",
+              "surface-bright": "#31394d",
+              "on-background": "#dae2fd",
+              "on-tertiary": "#452b00",
+              "inverse-surface": "#dae2fd",
+              "surface-container-highest": "#2d3449",
+              "primary-container": "#7dd3fc",
+              "on-tertiary-container": "#754b00",
+              "background": "#0b1326",
+              "on-secondary-fixed": "#001e2b",
+              "secondary-container": "#2f4d5c",
+              "tertiary": "#ffdfba",
+              "outline": "#899298",
+              "error": "#ffb4ab",
+              "secondary-fixed-dim": "#accbdd",
+              "on-primary-container": "#005b78",
+              "tertiary-container": "#febc60",
+              "on-error-container": "#ffdad6",
+              "surface": "#0b1326",
+              "surface-container-high": "#222a3d",
+              "on-primary-fixed-variant": "#004d66",
+              "on-secondary": "#143442",
+              "on-tertiary-fixed-variant": "#633f00",
+              "on-surface": "#dae2fd",
+              "surface-container": "#171f33",
+              "on-surface-variant": "#bec8ce",
+              "tertiary-fixed-dim": "#fcba5e",
+              "on-secondary-container": "#9ebdce",
+              "secondary": "#accbdd",
+              "surface-dim": "#0b1326",
+              "on-tertiary-fixed": "#2a1800"
+            },
+            fontFamily: {
+              "headline": ["Inter", "Noto Sans SC"],
+              "body": ["Inter", "Noto Sans SC"],
+              "label": ["Inter", "Noto Sans SC"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-effect {
+        background: rgba(34, 42, 61, 0.4);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen pb-32">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#7dd3fc] cursor-pointer hover:opacity-80 transition-opacity">menu</span>
+<h1 class="text-xl font-black text-[#7dd3fc] font-['Inter','Noto_Sans_SC'] tracking-tight">大学城美食地图</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#7dd3fc] cursor-pointer hover:opacity-80 transition-opacity">search</span>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto space-y-8">
+<!-- Profile Header Section -->
+<section class="relative group">
+<div class="flex items-center gap-6">
+<div class="relative">
+<div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-[#7dd3fc] to-transparent">
+<img alt="User avatar" class="w-full h-full rounded-full object-cover border-4 border-background" data-alt="close-up portrait of a stylish young student in a modern urban setting with soft glowing background lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuoZlqrMaB6VdHB4KcAr6xbFYpebn6ChRe-eDbQqRTMvfplgEB25FTXdjdbq6J4Cxiu4MiI33QYM2WsnOiVHnx7ad3zxve0qzaRR7s0Tx36w5u8OgKhcvGTS4gQdNe2ZFjayRgT8vupK_Sa_VTQEbd65XpT7774-ILKuzyZ7O9cUzrLzpknKyTUP_vg6QNoGulr8XZ0yhZ7vGQQNUpadCJgohJoexDeHEFaJhCTQxli3tZSxmdcDDUyyMctzVyjuVt82m9ZL5cWSI"/>
+</div>
+<div class="absolute -bottom-1 -right-1 bg-primary-container text-on-primary-container w-8 h-8 rounded-full flex items-center justify-center shadow-lg">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="space-y-1">
+<h2 class="text-2xl font-black tracking-tight text-on-surface">晨曦同学</h2>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 bg-surface-container-high rounded-full text-[10px] font-bold text-[#7dd3fc] uppercase tracking-wider">Level 7</span>
+<span class="text-slate-400 text-xs font-medium">美食探索家</span>
+</div>
+<p class="text-slate-500 text-xs">“唯有美食与爱不可辜负。”</p>
+</div>
+</div>
+</section>
+<!-- Student Verification Entry (Core Feature) -->
+<section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#1e3a8a]/40 to-[#0b1326] border border-white/5 p-6 group cursor-pointer hover:scale-[1.01] transition-all">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#7dd3fc]/10 blur-3xl -mr-16 -mt-16 rounded-full group-hover:bg-[#7dd3fc]/20 transition-all"></div>
+<div class="relative z-10 flex justify-between items-center">
+<div class="space-y-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#7dd3fc]">school</span>
+<h3 class="text-lg font-bold text-[#7dd3fc]">学生邮箱认证</h3>
+</div>
+<p class="text-slate-300 text-sm max-w-[240px]">认证尊享：校园食堂补贴、周边商户独家 7 折起、专属身份标识。</p>
+<div class="pt-2">
+<button class="bg-[#7dd3fc] text-on-primary-container px-6 py-2 rounded-full text-xs font-black hover:opacity-90 transition-opacity flex items-center gap-2">
+                            立即认证 <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="hidden sm:block opacity-40 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-[#7dd3fc]" style="font-variation-settings: 'wght' 200;">badge</span>
+</div>
+</div>
+</section>
+<!-- Commercialization: Coupon & Campus Card -->
+<section class="space-y-4">
+<div class="flex justify-between items-end px-2">
+<h3 class="text-lg font-black text-on-surface tracking-tight">领券中心 / 校园福利</h3>
+<span class="text-xs text-[#7dd3fc] font-bold cursor-pointer hover:underline">查看全部</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Luckin Coupon -->
+<div class="glass-effect p-4 rounded-3xl border border-white/5 flex items-center justify-between group hover:border-[#7dd3fc]/30 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-2xl flex items-center justify-center overflow-hidden">
+<img alt="Luckin Coffee" class="w-full h-full object-cover" data-alt="minimalist logo of a blue coffee brand on a clean background with aesthetic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxtJ9aOugNQBvhfYFefng0gMJXNfq9HdCvJdNtzvGS_dUy2vVPjUIe_ZW_5doUdIk9i9I70pOxljJkMjw2MSiNYMqlhI22cEjENjVi4wkPI_wNAKKoiN3Qfwsn-bSB7cJshp0AvJ7FJ8mTSgJPjr6LoMk4ITv0z7sm8VEo06-Df8yqzkqKce4pfBeacxF5yHnUS2dD5fUB-RIKX4GxrVoDSLNXLY_lLia8UIZhncUWxgdZWtuBKFfQ4j1V93c7zPjS0PztwEsxE9I"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">瑞幸咖啡 9.2 折</p>
+<p class="text-[10px] text-slate-500">全场通用 · 周卡券</p>
+</div>
+</div>
+<button class="bg-[#7dd3fc]/10 text-[#7dd3fc] px-4 py-1.5 rounded-xl text-[10px] font-bold hover:bg-[#7dd3fc] hover:text-on-primary-container transition-all">领取</button>
+</div>
+<!-- Milk Tea Coupon -->
+<div class="glass-effect p-4 rounded-3xl border border-white/5 flex items-center justify-between group hover:border-[#7dd3fc]/30 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-2xl flex items-center justify-center overflow-hidden">
+<img alt="Milk Tea Shop" class="w-full h-full object-cover" data-alt="aesthetic close-up of a refreshing fruit tea with ice cubes and mint in a stylish cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt7Ws-pn1bVH21JxroAi-9_BIGgjall21LJOq5kYADkt0SXu8iHZu2ozEqfMU4534wZkmyvDtU0s4bslxyNo3Dw6rNC7OKp7679VyAMmilRva1NYYQT26ZOdatE_ihjtr4kdvVuF_UZvkVRVbAXjYmoZ1iQ0zAmkjjWC_sSShNfCgq2R8ViRTnn1Xr9H_CJJgdxrBflI3uEJ6DoT8XXlojjS4OBPaEN3fZmhSOAD6CPNrlgcILiPya37wH8G3r7-d80-J1b93SDVA"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">校门口奶茶 8 折</p>
+<p class="text-[10px] text-slate-500">指定饮品 · 学生专享</p>
+</div>
+</div>
+<button class="bg-[#7dd3fc]/10 text-[#7dd3fc] px-4 py-1.5 rounded-xl text-[10px] font-bold hover:bg-[#7dd3fc] hover:text-on-primary-container transition-all">领取</button>
+</div>
+</div>
+</section>
+<!-- General Functions List -->
+<section class="glass-effect rounded-[2rem] p-2 border border-white/5 divide-y divide-white/5 overflow-hidden">
+<div class="flex items-center justify-between p-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-[#7dd3fc]">bookmark</span>
+<span class="font-medium text-sm">我的收藏</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs text-slate-500">24 个地点</span>
+<span class="material-symbols-outlined text-slate-600 text-sm">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-[#7dd3fc]">dynamic_feed</span>
+<span class="font-medium text-sm">我的动态</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-[#7dd3fc] animate-pulse"></span>
+<span class="material-symbols-outlined text-slate-600 text-sm">chevron_right</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 group-hover:text-[#7dd3fc]">settings</span>
+<span class="font-medium text-sm">设置</span>
+</div>
+<span class="material-symbols-outlined text-slate-600 text-sm">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-error/10 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-error/60 group-hover:text-error">logout</span>
+<span class="font-medium text-sm text-error/80">退出登录</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#0b1326]/90 backdrop-blur-2xl z-50 rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] transition-all duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1">home</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] transition-all duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1">map</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">地图</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] transition-all duration-300 active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1">explore</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">动态</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#7dd3fc] bg-[#7dd3fc]/10 rounded-2xl px-4 py-1.5 shadow-[0_0_15px_rgba(125,211,252,0.2)] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">我的</span>
+</a>
+</nav>
+</body></html>

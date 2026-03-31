@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=Noto+Sans+SC:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#060e20",
+              "primary-fixed": "#c0e8ff",
+              "primary": "#c5eaff",
+              "on-primary-fixed": "#001e2b",
+              "on-primary": "#003547",
+              "secondary-fixed": "#c8e7f9",
+              "on-error": "#690005",
+              "inverse-primary": "#006686",
+              "error-container": "#93000a",
+              "outline-variant": "#3f484e",
+              "surface-container-low": "#131b2e",
+              "tertiary-fixed": "#ffddb5",
+              "surface-tint": "#7bd1fa",
+              "on-secondary-fixed-variant": "#2d4a59",
+              "surface-variant": "#2d3449",
+              "primary-fixed-dim": "#7bd1fa",
+              "inverse-on-surface": "#283044",
+              "surface-bright": "#31394d",
+              "on-background": "#dae2fd",
+              "on-tertiary": "#452b00",
+              "inverse-surface": "#dae2fd",
+              "surface-container-highest": "#2d3449",
+              "primary-container": "#7dd3fc",
+              "on-tertiary-container": "#754b00",
+              "background": "#0b1326",
+              "on-secondary-fixed": "#001e2b",
+              "secondary-container": "#2f4d5c",
+              "tertiary": "#ffdfba",
+              "outline": "#899298",
+              "error": "#ffb4ab",
+              "secondary-fixed-dim": "#accbdd",
+              "on-primary-container": "#005b78",
+              "tertiary-container": "#febc60",
+              "on-error-container": "#ffdad6",
+              "surface": "#0b1326",
+              "surface-container-high": "#222a3d",
+              "on-primary-fixed-variant": "#004d66",
+              "on-secondary": "#143442",
+              "on-tertiary-fixed-variant": "#633f00",
+              "on-surface": "#dae2fd",
+              "surface-container": "#171f33",
+              "on-surface-variant": "#bec8ce",
+              "tertiary-fixed-dim": "#fcba5e",
+              "on-secondary-container": "#9ebdce",
+              "secondary": "#accbdd",
+              "surface-dim": "#0b1326",
+              "on-tertiary-fixed": "#2a1800"
+            },
+            fontFamily: {
+              "headline": ["Inter", "Noto Sans SC"],
+              "body": ["Inter", "Noto Sans SC"],
+              "label": ["Inter", "Noto Sans SC"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "3xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(34, 42, 61, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        body {
+            background-color: #0b1326;
+            color: #dae2fd;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0b1326]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#7dd3fc] cursor-pointer hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200" data-icon="menu">menu</span>
+<h1 class="text-xl font-black text-[#7dd3fc] font-headline tracking-tight">校园食刻</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400 hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200" data-icon="search">search</span>
+<span class="material-symbols-outlined text-slate-400 hover:opacity-80 transition-opacity active:scale-95 transition-transform duration-200" data-icon="notifications">notifications</span>
+</div>
+</header>
+<main class="pt-20 pb-32 px-4 max-w-2xl mx-auto">
+<!-- Topic Selection (Horizontal Scroll) -->
+<section class="mb-8 overflow-hidden">
+<div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
+<button class="shrink-0 px-5 py-2 rounded-full bg-primary-container text-on-primary-container font-bold text-sm shadow-[0_0_15px_rgba(125,211,252,0.2)]"># 全部话题</button>
+<button class="shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-variant transition-colors"># 深夜食堂</button>
+<button class="shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-variant transition-colors"># 避雷指南</button>
+<button class="shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-variant transition-colors"># 宝藏老店</button>
+<button class="shrink-0 px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium text-sm hover:bg-surface-variant transition-colors"># 宿舍煮夫</button>
+</div>
+</section>
+<!-- Social Feed -->
+<div class="space-y-6">
+<!-- Post 1: Image Focus -->
+<article class="glass-card rounded-3xl overflow-hidden">
+<div class="p-5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary-container/20">
+<img alt="Avatar" data-alt="close-up portrait of a cheerful young man with short dark hair in a soft-lit urban setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcD7qaFDpwCu9XmD8Y2CQ0yY6ux0tGgBXOBuukMLnNf6l_sqTOsk7Yk84FkzxDnzYfPorgYY1Sd6k1y8sso5LHymIflefkgmBF1R4DU8bGt-J4SLLMzSasB0tTQeKqaaIg_cOwGfE1FLQxTPbcL5JKKiwKxKfm0e6HXdB5mrbFMTYdrllygemiGPNGzLsPif54m673cq_GN9FQXJOzK8v2Is1OnxLvEK3Gr-Zn09Ebbj-HYOPIkYp0PhlHpcYSFh0PXkK9ITPCmHg"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">林深不见鹿</p>
+<p class="text-[10px] text-on-surface-variant">2小时前 · 发布了动态</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="px-5 pb-3">
+<p class="text-on-surface leading-relaxed text-sm mb-4">
+                        二食堂新开的这家拉面真的绝了！汤底浓郁得像在喝牛奶，那个叉烧入口即化。强烈推荐加一份溏心蛋！🍜✨ #深夜食堂 #校园美食
+                    </p>
+<div class="rounded-2xl overflow-hidden aspect-[4/3] mb-4">
+<img alt="Ramen" class="w-full h-full object-cover" data-alt="extreme close-up of a steaming bowl of tonkotsu ramen with creamy broth, sliced pork belly, and a perfectly cooked soft-boiled egg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZJNGhAVg_Th1msdlt-qdmgYh28LgAzxCc3hytP3e1YOxpPJ_p0Z4oOpbTIJDgXmgTlJ4Sx04wu1shuQ-yoJm2Wwm1O8CC24e2g558LIfSCN15v8OWEptQs8ppqBcOVe4Q-4mKafFWiEoVHT2azJGKmAU2vuJngDP3TMh7bfZqpftLNga2N7mpY_ZI5srb4S-onErgjqL5fqyK0s9aEz4Rs_GRMN7BJP8UaoPF9n0sUZOZBmQe4XohqYOMIzNHpEzIzLJeTj0kmFc"/>
+</div>
+<div class="flex items-center gap-2 mb-4 bg-primary/5 p-2 rounded-xl inline-flex cursor-pointer hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="location_on">location_on</span>
+<span class="text-xs text-primary-container font-medium">第二食堂 · 九州拉面馆</span>
+<span class="material-symbols-outlined text-primary-container text-xs" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<div class="px-5 py-4 border-t border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container transition-colors group">
+<span class="material-symbols-outlined group-active:scale-125 transition-transform" data-icon="favorite">favorite</span>
+<span class="text-xs">128</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-xs">42</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</article>
+<!-- Post 2: Text Heavy/Multiple Images -->
+<article class="glass-card rounded-3xl overflow-hidden">
+<div class="p-5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary-container/20">
+<img alt="Avatar" data-alt="smiling young woman with long wavy hair, outdoor photography with warm sunset lighting and bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyye-5K0YwF2RvucA3fzOVaUyUqp-WB9AzMWVl_A26UlNymT8vWb0fWlI0OzZXonAJGs6XWVEWlQEBd85dyATNptcIYY_yt_o84w8twJK1r60RHLS7jfzjzqz7NYayV-CHYf1NV1IaEn-1UksD4IkSdeBzPhYi5cDfd-PpELVRBUIOj1_4yPV0gDNsXNWF6g1HF4P-kb7TR2z3kbnkVf4zRkoz7v_AEAXhV5xnXCrgcpbc7SePbnoMJ60BQ1yPFMio4MKGuhvlamU"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">晚风星海</p>
+<p class="text-[10px] text-on-surface-variant">4小时前 · 避雷指南</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="px-5 pb-3">
+<p class="text-on-surface leading-relaxed text-sm mb-4">
+                        避雷！校门口这家新出的奶茶真的有点大翻车... 宣传图上满满的果肉，实际喝起来全是香精味，而且甜度爆表！大家快逃吧 😭💔 #避雷指南 #奶茶测评
+                    </p>
+<div class="grid grid-cols-2 gap-2 mb-4">
+<div class="rounded-xl overflow-hidden aspect-square">
+<img alt="Drink" class="w-full h-full object-cover" data-alt="a plastic cup of bubble tea on a table, brightly lit but showing artificial looking colors and generic packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRDrDuKpD7aSnkxHawSjjI-3yU40cMHLdLs5_dHTKzU6kGpG1tgq1yxad6k79ykh-AlshtXEYwULRmfafIAWSuExotFlCfsWivaxzQb_O2Dcpx7IOj93EjwwTbnshwGlYgB6VSRmIqm32rPYw3Fw7CGMNrt2qm-diq0IkKqxy0U9t_4Rp_wE0Il7fHlS8DBA1rfLnOz0VghHboxtg9ihvLFzgDmkz1SDWc8v0dxAWn-5ZXo3E3h47m0eQtHFXSFLT0G9Y-fViNXaM"/>
+</div>
+<div class="rounded-xl overflow-hidden aspect-square">
+<img alt="Detail" class="w-full h-full object-cover" data-alt="close up of a poorly presented beverage with excessive syrup and artificial toppings in a plastic cup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA48pAQUyp9ayo7SPLBfzK3WGYilGagQm-_I_LnbRvXSrL1hl4u_hc6ofDsY3i8pzOFz_tdbl4OW5fZr9ZHsXhWnGMNSEyXhBJvZfp2dKNBvSyTY7MLAzuWCSdFmgdAgWgBO2UMMSouAIf0NV6DBzCu62YUv4qbpI2_pZB5dKSST4JzDisHQvZr3gFC1Dr-Tp5EvUfSe-NTMYkH5FVBXrUfk0fjvqv3KcqnEdeTSv5rXW5m-ploYwNK9RbykGTYAeqQpC6b84gJekE"/>
+</div>
+</div>
+<div class="flex items-center gap-2 mb-4 bg-primary/5 p-2 rounded-xl inline-flex cursor-pointer hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="location_on">location_on</span>
+<span class="text-xs text-primary-container font-medium">北门 · 甜心茶社</span>
+<span class="material-symbols-outlined text-primary-container text-xs" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+<div class="px-5 py-4 border-t border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container transition-colors group">
+<span class="material-symbols-outlined group-active:scale-125 transition-transform" data-icon="favorite">favorite</span>
+<span class="text-xs">2.1k</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-xs">892</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</article>
+<!-- Post 3: Short update -->
+<article class="glass-card rounded-3xl overflow-hidden">
+<div class="p-5 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary-container/20">
+<img alt="Avatar" data-alt="headshot of a young man with glasses, looking thoughtfully at the camera in a modern minimalist studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMRKlNjqDlzRV8PTeDPmmVzA-a991MYP4WTA8zLOxeHTb9NuT6IndKByBBLv0JitPjWr9_YKsWp9W3be6q8GTFg0xxt7x4BOUhN-771X6NwfUS1oawVffYhD8mM3eerfjVfh9N9t0DnRjd4KVfB5Uypu5Fa3dJ6U5-CqnQatEQQdzbdGiKpX2akcVqtZfZmTWrSUloaNpMRldkdrVMo03Ds2DWXiqsC4391eDfnWJb0-hdDw1zFWGr1Z97Fn_MdfBbDHm3e5X-9Xs"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">阿强学长</p>
+<p class="text-[10px] text-on-surface-variant">6小时前 · 动态</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="px-5 pb-5">
+<p class="text-on-surface leading-relaxed text-sm">
+                        大家有无推荐的低卡餐？最近减肥压力大，在线等，挺急的... 🥗🏃‍♂️
+                    </p>
+</div>
+<div class="px-5 py-4 border-t border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container transition-colors group">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="text-xs">15</span>
+</button>
+<button class="flex items-center gap-1.5 text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-xs">34</span>
+</button>
+</div>
+<button class="text-on-surface-variant hover:text-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="share">share</span>
+</button>
+</div>
+</article>
+</div>
+</main>
+<!-- FAB (Create Post) -->
+<button class="fixed right-6 bottom-28 w-14 h-14 rounded-2xl bg-primary-container text-on-primary-container shadow-[0_8px_24px_rgba(125,211,252,0.4)] flex items-center justify-center active:scale-90 transition-all duration-300 z-50">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="add">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-[#0b1326]/90 backdrop-blur-2xl z-50 rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.4)]">
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">首页</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">地图</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#7dd3fc] bg-[#7dd3fc]/10 rounded-2xl px-4 py-1.5 shadow-[0_0_15px_rgba(125,211,252,0.2)] active:scale-90 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">动态</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-4 py-1.5 hover:text-[#c5eaff] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-medium font-['Noto_Sans_SC']">我的</span>
+</a>
+</nav>
+<!-- Map Location Modal Mock (Hidden) -->
+<div class="hidden fixed bottom-32 left-4 right-4 z-[60] glass-card rounded-3xl p-4 animate-slide-up" id="location-preview">
+<div class="flex gap-4">
+<div class="w-20 h-20 rounded-xl overflow-hidden">
+<img alt="Food" data-alt="overhead view of a beautifully plated dish with fresh ingredients and vibrant colors on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeRnN9ICJLShf_W0rgdq4B8kkTGNB_xYK2jzQFocwIkhohXmEfnWrEhSlQAXBkWNmDlbJObBVEPCzCMs4JN1zRg3Mkkdi5NPbU2XUNfn_cDfT8YVX0DRE1eu4aLNPDwrPPf7QCXow_6sKHI6YiXrSsd8Xplsqu09dvzp7ww3BwXrCdIQZ0qmFXfyXisRZPEskW8aGLVSZZtxlnB_30ZayOv2K_hluUEOx1ZiZLgV7ZQZvBztRWnXbRcsLYY6YODNUj8Z8s6x9a1FU"/>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h4 class="font-bold text-sm">第二食堂 · 九州拉面馆</h4>
+<span class="text-[10px] bg-primary/20 text-primary-container px-2 py-0.5 rounded-full">评分 4.8</span>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-1">地址：校园二食堂 2层 B03档口</p>
+<div class="flex gap-2 mt-2">
+<button class="text-[10px] font-bold text-on-primary-container bg-primary-container px-3 py-1 rounded-full">查看详情</button>
+<button class="text-[10px] font-bold text-on-surface bg-surface-container-highest px-3 py-1 rounded-full">路线指引</button>
+</div>
+</div>
+</div>
+</div>
+</body></html>
